@@ -17,7 +17,7 @@ CREATE TABLE item (
   item_name TEXT NOT NULL,
   unit TEXT,
   unit_cost numeric,
-  supplier INTEGER REFERENCES supplier(id) NOT NULL
+  supplier INTEGER REFERENCES supplier(id) ON DELETE SET NULL
 );
 
 DROP TABLE IF EXISTS supplier_order;
