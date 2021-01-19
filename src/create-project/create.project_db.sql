@@ -52,3 +52,53 @@ CREATE TABLE employee_project (
   end_date DATE,
   PRIMARY KEY (emp_id, project_id)
 );
+
+-- Join tables to query data from multiple tables
+-- SELECT <columns>
+-- FROM <table1> JOIN <table2> ON <related columns>;
+
+-- notes on using alias for query table joining
+-- SELECT
+--   d.id,
+--   d.dept_name,
+--   e.emp_name,
+--   e.phone,
+--   e.title,
+--   e.salary
+-- FROM
+--   department d
+--   JOIN
+--   employee e
+--   ON d.manager = e.id;
+
+--  id |    dept_name    |    emp_name     |  phone  |          title          | salary
+-- ----+-----------------+-----------------+---------+-------------------------+--------
+--   1 | Development     | Edgar Djikstra  | 5554567 | Lead Software Developer | 120000
+--   2 | Sales           | Jim Halpert     | 5555678 | Salesman                |  50000
+--   3 | Human Resources | Toby Flenderson | 5558769 | Head Human Resources    |  60000
+--   4 | Warehouse       | Meredith Palmer | 5559876 | Supplier Relations      |  30000
+-- (4 rows)
+
+-- alternatively, to provide table alias
+
+
+-- SELECT
+--   d.id as department_id,
+--   d.dept_name as department,
+--   e.emp_name as Full_Name,
+--   e.phone,
+--   e.title,
+--   e.salary
+-- FROM
+--   department d
+--   JOIN
+--   employee e
+--   ON d.manager = e.id;
+
+--  department_id |   department    |    full_name    |  phone  |          title          | salary
+-- ---------------+-----------------+-----------------+---------+-------------------------+--------
+--              1 | Development     | Edgar Djikstra  | 5554567 | Lead Software Developer | 120000
+--              2 | Sales           | Jim Halpert     | 5555678 | Salesman                |  50000
+--              3 | Human Resources | Toby Flenderson | 5558769 | Head Human Resources    |  60000
+--              4 | Warehouse       | Meredith Palmer | 5559876 | Supplier Relations      |  30000
+-- (4 rows)
